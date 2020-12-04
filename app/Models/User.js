@@ -34,6 +34,13 @@ class User extends Model {
   tokens () {
     return this.hasMany('App/Models/Token')
   }
+  home(){
+    return this.belongsToMany('App/Models/Home')
+}
+static get hidden(){
+  return["password"]
+}
+ 
 }
 
 module.exports = User
