@@ -24,7 +24,7 @@ Route.post('/register', 'AuthController.register');
 Route.post('/authenticate', 'AuthController.authenticate');
 
 
-Route.get("/materias/:id", "MateriaController.index");
+Route.get("/materias", "MateriaController.index");
 
 Route.group(() =>{
   Route.resource('materias', 'MateriaController').only([
