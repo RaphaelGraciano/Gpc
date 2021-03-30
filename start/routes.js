@@ -22,5 +22,18 @@ Route.get('/', () => {
 
 Route.post('/register', 'AuthController.register');
 Route.post('/authenticate', 'AuthController.authenticate');
-Route.resource('materias', 'MateriaController')
+
+
+Route.get("/materias/:id", "MateriaController.index");
+
+Route.group(() =>{
+  Route.resource('materias', 'MateriaController').only([
+    "show",
+    "store",
+    "update",
+    "destroy",
+
+  ]);
+}).middleware(["auth"]);
+
 Route.resource('home', 'HomeController')
